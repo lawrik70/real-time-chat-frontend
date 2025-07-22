@@ -1,0 +1,39 @@
+<div class="room-list-container">
+  <div class="header">
+    <h2>Chat Rooms</h2>
+    <div class="user-info" *ngIf="currentUser">
+      Welcome, {{ currentUser }}!
+      <button (click)="onLogout()">Logout</button>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div class="create-room">
+    <input 
+      [(ngModel)]="newRoomName" 
+      placeholder="New room name"
+      (keyup.enter)="createRoom()"
+      [disabled]="isLoading"
+    >
+    <button 
+      (click)="createRoom()"
+      [disabled]="!newRoomName.trim() || isLoading"
+    >
+      {{ isLoading ? 'Creating...' : 'Create Room' }}
+    </button>
+  </div>
+
+  <div *ngIf="isLoading && rooms.length === 0" class="loading">
+    Loading rooms...
+  </div>
+
+  <div class="rooms">
+    <div *ngFor="let room of rooms" class="room-item">
+      <span>{{ room }}</span>
+      <button (click)="joinRoom(room)">Join</button>
+    </div>
+  </div>
+</div>

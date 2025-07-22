@@ -1,0 +1,24 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>{{roomName}}</h2>
+    <div class="user-list">
+      <span *ngFor="let user of users" class="user-badge">{{user}}</span>
+    </div>
+    <button (click)="leaveRoom()">Leave Room</button>
+  </div>
+  
+  <div class="messages-container">
+    <div *ngFor="let message of messages" class="message" [class.current-user]="message.sender === currentUser">
+      <div class="message-header">
+        <span class="sender">{{message.sender}}</span>
+        <span class="timestamp">{{message.timestamp | date:'shortTime'}}</span>
+      </div>
+      <div class="message-content">{{message.content}}</div>
+    </div>
+  </div>
+  
+  <div class="message-input">
+    <input [(ngModel)]="newMessage" placeholder="Type your message..." (keyup.enter)="sendMessage()">
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
