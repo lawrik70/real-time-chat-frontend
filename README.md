@@ -1,59 +1,48 @@
-# Frontend
+# Chat Application Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+Angular frontend for the real-time chat application.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- User authentication (login/register)
+- Room creation and joining
+- Real-time messaging
+- Responsive design
+- Typing indicators
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js 16+
+- npm 8+
+- Angular CLI 15+
 
-## Code scaffolding
+## Installation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. git clone https://github.com/lawrik70/real-time-chat-frontend.git
+2. Navigate to client directory:
+   cd real-time-chat-frontend
+   npm install
 
-```bash
-ng generate component component-name
-```
+## Development Server
+    Run development server:
+    ng serve
+    Navigate to http://localhost:4200
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Key Components
 
-```bash
-ng generate --help
-```
+WebSocketService: Handles real-time communication
+AuthService: Manages user authentication
+ChatService: Room and message management
+LoginComponent: User authentication
+RoomListComponent: Room selection interface
+ChatRoomComponent: Main chat interface
 
-## Building
+## Troubleshooting
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+WebSocket Connection Issues
+Verify CORS settings on server
+Check firewall/network permissions
+Ensure correct WebSocket URL
+Room Creation Fails
+Verify user is authenticated
+Check for duplicate room names
